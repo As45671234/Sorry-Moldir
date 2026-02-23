@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Прости меня, Молдир 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive;
+  }
+
+  .card {
+    background: white;
+    width: 340px;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    z-index: 2;
+    animation: zoom 1s ease;
+  }
+
+  @keyframes zoom {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  h1 {
+    color: #ff3f6c;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    color: #ff6f91;
+    margin-top: 5px;
+  }
+
+  .heart {
+    font-size: 55px;
+    animation: beat 1s infinite;
+  }
+
+  @keyframes beat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+
+  p {
+    color: #555;
+    font-size: 15px;
+    margin: 10px 0;
+  }
+
+  .shayari {
+    background: #fff0f5;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #d6336c;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #ff3f6c;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  button:hover {
+    background: #ff1f55;
+  }
+
+  .msg {
+    display: none;
+    margin-top: 10px;
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  /* Floating hearts */
+  .floating-heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <div class="heart">💖</div>
+  <h1>Прости...</h1>
+  <h2>Молдир 🌸</h2>
+
+  <div class="shayari">
+    «Прости дурака, Молдир, я виноват 💔<br>
+    Я правда буду стараться быть лучше ✨<br>
+    Сегодня оступился... но всё осознал 🥺<br>
+    Простишь меня, жаным? 💗»
+  </div>
+
+  <p>Я люблю тебя и хочу, чтобы рядом со мной тебе было хорошо 💞<br>
+  Буду стараться из всех сил ради этого 🌷</p>
+
+  <button onclick="forgive()">Простить</button>
+  <div class="msg" id="msg">Спасибо жаным😍, не пожелеешь! 💖</div>
+</div>
+
+<script>
+  function forgive() {
+    document.getElementById("msg").style.display = "block";
+  }
+
+  // Floating hearts generator
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 6000);
+  }, 300);
+</script>
+
+</body>
+</html>
